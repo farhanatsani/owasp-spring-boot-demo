@@ -9,6 +9,7 @@ public class RspMsgConstants {
     public static final String $_SUCCESSFULLY_SAVE = "_var successfully save";
     public static final String SUCCESSFULLY_SAVE_$ = "Successfully save. Total data _var";
     public static final String $_SUCCESSFULLY_CHANGED = "_var successfully changed";
+    public static final String USER_PASSWORD_NOT_VALID = "User or password not valid";
     public static String constructMessage(String param, String msgConstant) {
         return msgConstant.replaceAll("_var", param);
     }

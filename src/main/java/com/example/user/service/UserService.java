@@ -1,24 +1,16 @@
 package com.example.user.service;
 
 import com.example.security.User;
-import com.example.user.entity.UserEntity;
-import com.example.user.repository.UserEntityRepository;
-import org.springframework.stereotype.Service;
+import com.example.user.dto.UserDto;
 
+import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
-@Service
-public class UserService {
-    private UserEntityRepository userEntityRepository;
-    public UserService(UserEntityRepository userEntityRepository) {
-        this.userEntityRepository = userEntityRepository;
-    }
-    public Optional<User> findUserByEmail(String email) {
-        return userEntityRepository.findUserByEmail(email).map(this::toUser);
-    }
-    private User toUser(UserEntity u) {
-        return new User(
-                u.getId(), u.getFirstName(), u.getLastName(),
-                u.getPassword(), u.getEmail(), u.getRoles());
-    }
+public interface UserService {
+    UserDto saveUser(UserDto userDto);
+    void changePassword(UUID id, String oldPassword, String newPassword);
+    List<UserDto> findAll();
+    Optional<UserDto> findUserById(UUID id);
+    Optional<User> findUserDetailByEmail(String email);
 }

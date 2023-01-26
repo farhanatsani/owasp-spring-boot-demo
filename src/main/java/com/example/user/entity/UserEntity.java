@@ -4,6 +4,7 @@ import com.example.base.BaseEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.experimental.SuperBuilder;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -13,6 +14,7 @@ import static javax.persistence.FetchType.EAGER;
 
 @Entity
 @Data
+@SuperBuilder
 @AllArgsConstructor
 @NoArgsConstructor
 public class UserEntity extends BaseEntity {
